@@ -1,0 +1,22 @@
+---
+title: "README"
+author: "yo"
+date: "2023-11-17"
+output: html_document
+---
+
+## R Markdown Merge
+run the entire run_analysis.R
+This is the table obtained from a union
+
+```{r merge}
+dim(mer)
+```
+
+##Final score
+
+
+```{r }
+View(final_Table)
+```
+
