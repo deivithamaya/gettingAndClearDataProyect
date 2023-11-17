@@ -17,12 +17,13 @@ dtranX$id<- 1:length(dtranX[[1]])
 dtestX$id<- 1:length(dtestX[[1]])
 
 mer<- merge(dtranX,dtestX,by.x = "id",by.y = "id",all=TRUE)
+mer$id<-NULL
 #means
 meansNewDb<-colMeans(mer,na.rm = TRUE)
 #standard deviation
 calD<-vector("numeric")
 for(i in 1:length(mer)){
-  calD[i]<-sd(mer[[i]])
+  calD[i]<-sd(mer[[i]],na.rm = TRUE)
 }
 
 namesLabeslsTrain<-paste(namesLabeslsTrain,".Trainx")
@@ -30,4 +31,7 @@ namesLabeslsTest<-paste(namesLabeslsTest,".Testx")
 
 namesForNewTable<-c(namesLabeslsTrain,namesLabeslsTest)
 
-
+#dt<-data.frame(means=meansNewDb,sDeviation=calD)
+nM<- rbind(meansNewDb,calD)
+dimnames(nM)<-list(c("Means","standard deviation"),unlist(namesForNewTable))
+View(nM)
