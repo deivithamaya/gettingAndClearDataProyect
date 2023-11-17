@@ -54,11 +54,10 @@ final_Table<-as.data.table(nM)
 View(final_Table)
 
 #finally exported the table to a .csv file
-write.table(final_Table,file="./final_table.csv",sep=" ",row.names = TRUE,col.names = TRUE)
+write.table(final_Table,file="./final_table.csv",sep=" ",row.names = FALSE,col.names = TRUE)
 
 ###Please to read the file use the following command
 ##table<- read.csv("./final_table.csv",sep=" ",head=TRUE,row.names =c("Means","standard deviation"))
-##remove rownames column
-##table$row.names=NULL
+
 
 
